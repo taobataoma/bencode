@@ -45,6 +45,10 @@ module.exports = function(grunt) {
   });
   
   grunt.event.on('coverage', function(lcov, done) {
+	  if(process.env.TRAVIS_PULL_REQUEST === false || 
+			  process.env.TRAVIS_PULL_REQUEST === 'false'){
+		  return done();
+	  }
     require('coveralls').handleInput(lcov, function(err) {
       if (err) {
         return done(err);
