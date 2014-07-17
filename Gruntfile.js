@@ -36,8 +36,8 @@ module.exports = function(grunt) {
           coverage : true,
           coverageFolder : 'tests/node/coverage',
           check : {
-            lines : 100,
-            statements : 100
+            lines : 70,
+            statements : 70
           }
         }
       }    
