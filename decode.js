@@ -2,9 +2,7 @@
  * type of output is string
  */
 var _decodeString = function(str,index) {
-	if(!index) {
-		index=0;
-	}
+	index = index || 0;
 	var strlenLen =str.indexOf(":",index)-index;
 	var strStart = parseInt(strlenLen) +index+1;
 	var strlen = str.substring(index,strStart-1);
@@ -16,9 +14,7 @@ var _decodeString = function(str,index) {
  * type of val is Integer
  */
 var _decodeInteger = function(str,index) {
-	if(!index) {
-		index=0;
-	}
+	index = index || 0;
 	var intLen =str.indexOf("e",index);
 	return [parseInt(str.substring(index+1,intLen)),intLen+1];
 };
@@ -27,9 +23,7 @@ var _decodeInteger = function(str,index) {
  */
 var _decodeList = function(str,index) {
 	var decodedList = [];
-	if(!index) {
-		index=0;
-	}
+	index = index || 0;
 	var temp = index,bal=0;
 	for(temp=index+1;temp<str.length;temp++) {
 		var start = str.charAt(temp),val;
@@ -70,9 +64,7 @@ var _decodeList = function(str,index) {
  */
 var _decodeDictionary = function(str,index) {
 	var decodedDict = {};
-	if(!index) {
-		index=0;
-	}
+	index = index || 0;
 	var temp = index;
 	for(temp=index+1;temp<str.length;temp++) {
 		var start = str.charAt(temp),key,val;

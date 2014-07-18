@@ -42,18 +42,9 @@ var _encodeDictionary = function(obj) {
 	var encodedDictionary="d",temp,val;
 	for(temp in obj) {
 		val = obj[temp];
-		if(typeof temp==="string") {
-			encodedDictionary+=_encodeString(temp);
-		}
-		else if(typeof temp==="number") {
-			encodedDictionary+=_encodeInteger(temp);
-		}
-		else if(temp instanceof Array) {
-			encodedDictionary += _encodeList(temp);
-		}
-		else {
-			encodedDictionary += _encodeDictionary(temp);
-		}
+		
+		encodedDictionary+=_encodeString(temp);
+		
 		if(typeof val==="string") {
 			encodedDictionary+=_encodeString(val);
 		}
