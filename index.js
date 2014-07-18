@@ -12,7 +12,6 @@ module.exports.encode = function(dict,cb) {
 };
 
 module.exports.decode = function(str,cb) {
-	console.log(str);
 	var result;
 	try {
 		result = decode.decodeDictionary(str)[0];

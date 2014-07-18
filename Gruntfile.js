@@ -8,11 +8,18 @@
 
 'use strict';
 
-module.exports = function(grunt) {
-
+module.exports = function(grunt) {	
   // Project configuration.
   grunt.initConfig({            
-
+	  benchmark: {
+		options:{
+			displayResults: true
+		},
+	    all: {
+	      src: ['tests/node/benchmarks/*.js'],
+	      dest: 'tests/node/benchmarks/results.csv'
+	    }
+	  },
     mocha_istanbul:{
       coverage : {
         src : 'tests/node', // the folder, not the files
@@ -59,12 +66,13 @@ module.exports = function(grunt) {
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-mocha-istanbul');
+  grunt.loadNpmTasks('grunt-benchmark');
   
-  grunt.registerTask('testCoveralls', ['mocha_istanbul:coveralls']);
+  grunt.registerTask('testCoveralls', ['mocha_istanbul:coveralls', 'benchmark:all']);
   // To run unit with coverage report
   grunt.registerTask('testCoverage', ['mocha_istanbul:coverage' ]);
-
-  grunt.registerTask('default', testCoverage);
+  grunt.registerTask('benchmarked', ['benchmark:all']);
+  grunt.registerTask('default', ['testCoverage']);
   //grunt.option('force', true);
 
 };

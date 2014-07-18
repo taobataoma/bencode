@@ -35,5 +35,7 @@ public/libs
 test/coverage/coverage.lcov
 test/coverage.lcov
 
+tests/node/benchmarks/results.csv
+
 # Gemnasium gem configuration file
 config/gemnasium.yml
